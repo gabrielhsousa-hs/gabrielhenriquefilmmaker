@@ -469,7 +469,7 @@
       /* endereço público dos vídeos em um repositório separado do GitHub Pages (ex.: GitHub Pages do repositório de vídeos). Vazio = usa a pasta assets/videos */
       videoBase: 'https://gabrielhsousa-hs.github.io/videos-portfolio/',
       /* token do Cloudflare Web Analytics (Analytics e Eventos > Web Analytics > seu site > Manage site). Vazio = sem medição */
-      analyticsToken: ''
+      analyticsToken: '28f04b72fb264ea199c97e117b0e9cbb'
     };
 
     /* ====== TRABALHOS ======
@@ -502,7 +502,7 @@
     /* ---- medição de visitas (Cloudflare Web Analytics, sem cookies) ---- */
     if (CONFIG.analyticsToken) {
       const beacon = document.createElement('script');
-      beacon.defer = true;
+      beacon.type = 'module';
       beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
       beacon.setAttribute('data-cf-beacon', JSON.stringify({ token: CONFIG.analyticsToken }));
       document.body.append(beacon);
