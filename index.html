@@ -526,7 +526,8 @@
       backdrop.classList.remove('is-on');
     };
     const expandCard = (card) => {
-      if (expandedCard && expandedCard !== card) collapseCard();
+      if (expandedCard === card) return;
+      if (expandedCard) collapseCard();
       const rect = card.getBoundingClientRect();
       const viewW = document.documentElement.clientWidth;
       const zoom = Math.max(1, Math.min(1.45, (viewW - 32) / card.offsetWidth, (window.innerHeight * 0.88) / card.offsetHeight));
@@ -541,7 +542,8 @@
     const pauseExpanded = () => {
       if (!expandedCard) return;
       const v = expandedCard.querySelector('video');
-      if (v) v.pause(); else collapseCard();
+      if (v) v.pause();
+      collapseCard();
     };
     backdrop.addEventListener('click', pauseExpanded);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') pauseExpanded(); });
@@ -569,13 +571,11 @@
         video.addEventListener('loadedmetadata', () => {
           frame.classList.toggle('is-wide', video.videoWidth >= video.videoHeight);
         });
-        /* ao dar play: pausa os outros, centraliza e aumenta este vídeo; ao pausar, volta ao quadro */
+        /* ao dar play: pausa os outros, centraliza e aumenta este vídeo (continua assim ao pausar; só volta com Esc ou clique fora) */
         video.addEventListener('play', () => {
           document.querySelectorAll('.video-frame video').forEach((other) => { if (other !== video) other.pause(); });
           expandCard(card);
         });
-        video.addEventListener('pause', () => { if (expandedCard === card) collapseCard(); });
-        video.addEventListener('ended', () => { if (expandedCard === card) collapseCard(); });
         /* arquivo ainda não existe: usa o player do Instagram como reserva */
         video.addEventListener('error', () => {
           if (!project.url) return;
