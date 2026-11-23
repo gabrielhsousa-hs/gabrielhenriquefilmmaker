@@ -454,12 +454,15 @@
     const CONFIG = {
       whatsapp: '5516992967453',
       instagram: 'gabrielhs_',            // quando criar o perfil novo, troque só este valor
-      email: 'gabrielhsousa.hs@gmail.com'
+      email: 'gabrielhsousa.hs@gmail.com',
+      /* endereço público dos vídeos em um repositório separado do GitHub Pages (ex.: GitHub Pages do repositório de vídeos). Vazio = usa a pasta assets/videos */
+      videoBase: 'https://gabrielhsousa-hs.github.io/videos-portfolio/'
     };
 
     /* ====== TRABALHOS ======
        client: perfil para quem o trabalho foi feito
-       url:    link do reel no Instagram
+       file:   vídeo em assets/videos (nome em minúsculas, sem espaços ou acentos)
+       url:    (opcional) link do reel no Instagram, usado só se o arquivo faltar
        tag:    (opcional) categoria, ex.: 'Casamentos', 'Corporativo', 'Eventos', 'Saúde'.
                Quando pelo menos 2 categorias diferentes forem preenchidas, os filtros aparecem sozinhos.
        role:   (opcional) sua função no projeto. Padrão: 'Filmmaker'
@@ -469,17 +472,17 @@
        rotate: (opcional) -90 ou 90, para vídeos que o Instagram mostra deitados.
                Já usa quadro horizontal 16:9. Se girar para o lado errado, troque -90 por 90. */
     const projects = [
-      { file: 'assets/videos/01.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/Dej-iKDxgX3/', ratio: 'wide', rotate: -90 },
-      { file: 'assets/videos/02.mp4', client: '@dra.marceladestre',        url: 'https://www.instagram.com/reel/DaQN8p6ge-G/' },
-      { file: 'assets/videos/03.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/C-MGs6RtAxc/' },
-      { file: 'assets/videos/04.mp4', client: '@eduardofilmes',            url: 'https://www.instagram.com/reel/DPAF-ZJkar_/' },
-      { file: 'assets/videos/05.mp4', client: '@doiselos',                 url: 'https://www.instagram.com/reel/Dc3h3GCOE6u/' },
-      { file: 'assets/videos/06.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/CscL8v9vCz9/' },
-      { file: 'assets/videos/07.mp4', client: '@edmendesoficial',          url: 'https://www.instagram.com/reel/DXovpyijZeU/', ratio: 'wide' },
-      { file: 'assets/videos/08.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/DPY91J5DYkE/' },
-      { file: 'assets/videos/09.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/DK2zfxKyloX/' },
-      { file: 'assets/videos/10.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/DHeUkFCyn7o/', ratio: 'wide' },
-      { file: 'assets/videos/11.mp4', client: '@paulovillasboasfotovideo', url: 'https://www.instagram.com/reel/DFyGcvHJF6m/' }
+      { file: 'assets/videos/casamento-marcela-e-marcio.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-bia-e-gustavo.mp4', client: '@eduardofilmes' },
+      { file: 'assets/videos/casamento-brunna-e-vinicius.mp4', client: '@doiselos' },
+      { file: 'assets/videos/casamento-karine-e-gustavo.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-vic-e-andre.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-cassiana-e-moises.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-maria-e-jose.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-mariana-e-alexandre.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/15-anos-maria-luiza-cury.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/45-anos-juju-bianco.mp4', client: '@paulovillasboasfotovideo' },
+      { file: 'assets/videos/casamento-carla-e-thiago.mp4', client: '@paulovillasboasfotovideo' }
     ];
 
     /* ---- links e contatos vindos da CONFIG ---- */
@@ -522,7 +525,8 @@
         video.preload = 'metadata';
         video.setAttribute('controlsList', 'nodownload');
         video.setAttribute('aria-label', `Vídeo, trabalho para ${project.client}`);
-        video.src = project.file + '#t=0.1';
+        const base = CONFIG.videoBase ? CONFIG.videoBase.replace(/\/+$/, '') + '/' : 'assets/videos/';
+        video.src = base + project.file.split('/').pop() + '#t=0.1';
         video.addEventListener('loadedmetadata', () => {
           const landscape = video.videoWidth > video.videoHeight;
           frame.classList.toggle('is-wide', landscape);
@@ -530,6 +534,7 @@
         });
         /* arquivo ainda não existe: usa o player do Instagram como reserva */
         video.addEventListener('error', () => {
+          if (!project.url) return;
           video.remove();
           frame.classList.toggle('is-wide', wide);
           card.classList.toggle('is-wide-card', wide);
