@@ -753,8 +753,13 @@
 
     const applyView = () => {
       const all = activeTag === 'Todos';
-      cards.forEach((c, i) => { c.el.hidden = all ? !(expanded || i < LIMIT) : c.tag !== activeTag; });
-      showMoreWrap.hidden = !(all && projects.length > LIMIT);
+      let n = 0;
+      cards.forEach((c) => {
+        const match = all || c.tag === activeTag;
+        if (match) n += 1;
+        c.el.hidden = !(match && (expanded || n <= LIMIT));
+      });
+      showMoreWrap.hidden = !(n > LIMIT);
       showMore.setAttribute('aria-expanded', String(expanded));
       showMore.innerHTML = expanded
         ? 'Mostrar menos <span aria-hidden="true">&#8593;&#65038;</span>'
@@ -770,6 +775,7 @@
         chip.setAttribute('aria-pressed', String(name === activeTag));
         chip.addEventListener('click', () => {
           activeTag = name;
+          expanded = false;
           updateWa(name);
           chipsBox.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
           applyView();
