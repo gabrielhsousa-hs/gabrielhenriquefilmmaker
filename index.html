@@ -163,8 +163,16 @@
     #sobre::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, #0a0a0a 0%, #0a0a0a 34%, rgba(10,10,10,.95) 46%, rgba(10,10,10,.38) 68%, rgba(10,10,10,0) 82%), linear-gradient(0deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.33) 6%, rgba(10,10,10,.17) 13%, rgba(10,10,10,.05) 20%, rgba(10,10,10,0) 26%, rgba(10,10,10,0) 77%, #0a0a0a 100%); pointer-events: none; }
     .about-grid { position: relative; z-index: 2; width: 100%; }
     .about-copy { max-width: 660px; }
-    .about-body { margin-top: 48px; font-size: clamp(21px,2.4vw,33px); line-height: 1.43; color: #d7d1ca; }
+    .about-body { margin-top: 40px; font-size: clamp(19px,1.9vw,27px); line-height: 1.43; color: #d7d1ca; }
     .about-body p { margin-top: 0; }
+    .about-more { margin-top: 26px; font-size: 17px; line-height: 1.6; color: #b8afa5; }
+    .about-more summary { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; list-style: none; padding: 11px 20px; border: 1px solid var(--glass-line, #3b3732); border-radius: 40px; background: var(--glass-bg, rgba(255,255,255,.04)); color: var(--fg, #f3efe9); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .about-more summary::-webkit-details-marker { display: none; }
+    .about-more summary::after { content: "+"; color: var(--accent, #d4af37); font-size: 17px; line-height: 1; }
+    .about-more[open] summary::after { content: "\2013"; }
+    .about-more summary:hover, .about-more summary:focus-visible { border-color: rgba(215,190,160,.6); }
+    .about-long { margin-top: 22px; }
+    .about-long p { margin: 0 0 16px; }
     .about-body .about-purpose { color: #b8afa5; font-size: 17px; line-height: 1.6; }
     .about-body .about-purpose strong { font-weight: 650; }
 
@@ -401,9 +409,17 @@
           <div class="eyebrow">Quem está por trás da câmera</div>
           <h2>Olhar.<br>Processo.<br>História.</h2>
           <div class="about-body">
-            <p>Sou <strong>Gabriel Henrique</strong>, filmmaker e produtor audiovisual, com uma trajetória iniciada em 2012 e experiência profissional desde 2018.</p>
-            <p>Ao longo dos anos, construí minha carreira em produções de casamentos, institucionais, eventos e projetos autorais, sempre buscando unir técnica, criatividade e sensibilidade cinematográfica.</p>
-            <p class="about-purpose"><strong>Meu propósito é transformar ideias em narrativas visuais autênticas, com estratégia, estética, emoção e propósito.</strong></p>
+            <p>Sou o <strong>Gabriel</strong>, filmmaker de Ribeirão Preto. Desde moleque, lá nos anos 2000, o audiovisual faz parte da minha vida: cresci registrando a minha turma, com o celular e o equipamento que desse pra emprestar. Tentei o caminho seguro, a engenharia, mas não fui feliz e voltei pro que eu amava.</p>
+            <p>Hoje sou formado em Produção Audiovisual pela Universidade Barão de Mauá e vivo de audiovisual, contando histórias de duas formas: <strong>nos casamentos, com emoção; no corporativo, com resultado.</strong></p>
+            <details class="about-more">
+              <summary>Ler minha história completa</summary>
+              <div class="about-long">
+                <p>Eu nasci em Ribeirão Preto e cresci em Catanduva, cercado de amigos que tinham banda e andavam de skate. Desde moleque, lá nos anos 2000, acompanhando essa turma, eu já registrava tudo: shows, campeonatos de skate, clipes, batalhas de rima e viagens. Eu nem sabia que aquilo se chamava audiovisual. Só sabia que me sentia bem fazendo, e cresci dentro disso.</p>
+                <p>Comecei com o que tinha: celular e câmeras semi-profissionais emprestadas de amigos. Por medo de arriscar, tentei o caminho seguro e passei quatro anos na engenharia da computação, mas não fui feliz ali e voltei pro que eu amava. Em 2017 comprei minha primeira câmera profissional, e os primeiros trabalhos de foto viraram uma renda extra, que virou paixão e, depois, profissão. Desde aquele mesmo ano tenho ao meu lado a Gabi, minha esposa desde 2022, que me apoia em cada passo.</p>
+                <p>Hoje vivo de audiovisual e cresço a cada projeto. Nos casamentos, meu trabalho é emoção: guardar o que não se repete. No corporativo, é resultado: vídeo que comunica, engaja e entrega. Em comum, uma coisa só: gerar conexão, surpreender e deixar uma marca.</p>
+                <p>Acabei de me formar em Produção Audiovisual pela Universidade Barão de Mauá e sigo investindo na minha profissão e na minha carreira, sempre buscando entregar resultado.</p>
+              </div>
+            </details>
           </div>
         </div>
       </div>
