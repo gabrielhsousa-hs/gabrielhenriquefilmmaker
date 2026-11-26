@@ -15,10 +15,16 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Gabriel Henrique — Filmmaker">
   <meta property="og:description" content="Filmmaker e produtor audiovisual em Ribeirão Preto. Imagem com intenção, histórias com presença.">
+  <meta property="og:url" content="https://gabrielhenriquefilmmaker.gabrielhsousa-hs.workers.dev/">
+  <meta property="og:image" content="https://gabrielhenriquefilmmaker.gabrielhsousa-hs.workers.dev/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gabriel Henrique, filmmaker em Ribeirão Preto">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gabrielhenriquefilmmaker.gabrielhsousa-hs.workers.dev/assets/og.jpg">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='28' text-anchor='middle' fill='%23d7bea0'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="preload" as="image" href="assets/gabriel-inicio.png">
+  <link rel="preload" as="image" href="assets/gabriel-inicio.webp">
 
   <script type="application/ld+json">
   {
@@ -35,7 +41,7 @@
 
   <style>
     :root {
-      --hero-photo: url("assets/gabriel-inicio.png");
+      --hero-photo: url("assets/gabriel-inicio.webp");
       color-scheme: dark;
       --bg: #0a0a0a;
       --fg: #f3f0e9;
@@ -152,6 +158,7 @@
     .meta-field strong { display: block; color: #eee9e2; font-size: 16px; font-weight: 500; line-height: 1.25; overflow-wrap: anywhere; }
     .meta-field.client { text-align: right; }
     .meta-field.client strong { color: var(--accent); }
+    .cat-cta { display: flex; justify-content: center; margin-top: 44px; }
     .show-more-wrap { display: flex; justify-content: center; margin-top: 36px; }
     .show-more { display: inline-flex; align-items: center; gap: 28px; border: 1px solid #77716b; border-radius: 40px; padding: 16px 23px; background: transparent; color: var(--fg); text-transform: uppercase; letter-spacing: .1em; font-size: 11px; cursor: pointer; transition: .2s; }
     .show-more:hover, .show-more:focus-visible { border-color: var(--accent); color: var(--accent); }
@@ -159,7 +166,7 @@
 
     /* ---------- SOBRE ---------- */
     #sobre { position: relative; overflow: hidden; isolation: isolate; min-height: 820px; display: flex; align-items: center; background: linear-gradient(90deg, #0a0a0a 0%, #0a0a0a 45%, #1b1b1b 75%, #343434 100%); }
-    #sobre::before { content: ""; position: absolute; z-index: 0; inset: 0; background: url("assets/gabriel-sobre.jpg") calc(100% + 300px) 100% / auto 100% no-repeat; opacity: .7; filter: contrast(1.18); pointer-events: none; }
+    #sobre::before { content: ""; position: absolute; z-index: 0; inset: 0; background: url("assets/gabriel-sobre.webp") calc(100% + 300px) 100% / auto 100% no-repeat; opacity: .7; filter: contrast(1.18); pointer-events: none; }
     #sobre::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, #0a0a0a 0%, #0a0a0a 34%, rgba(10,10,10,.95) 46%, rgba(10,10,10,.38) 68%, rgba(10,10,10,0) 82%), linear-gradient(0deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.33) 6%, rgba(10,10,10,.17) 13%, rgba(10,10,10,.05) 20%, rgba(10,10,10,0) 26%, rgba(10,10,10,0) 77%, #0a0a0a 100%); pointer-events: none; }
     .about-grid { position: relative; z-index: 2; width: 100%; }
     .about-copy { max-width: 660px; }
@@ -388,6 +395,7 @@
         </div>
         <div class="chips" id="chips" role="group" aria-label="Filtrar trabalhos" hidden></div>
         <div class="projects" id="projects"></div>
+        <div class="cat-cta" id="catCta"><a class="pill pill-solid" id="catCtaLink" href="#contato" target="_blank" rel="noopener noreferrer">Pedir orçamento pelo WhatsApp</a></div>
         <noscript><p class="sub">Para ver os vídeos, ative o JavaScript ou acesse o Instagram: <a href="https://www.instagram.com/gabrielhs_/" style="text-decoration:underline">@gabrielhs_</a>.</p></noscript>
         <div class="show-more-wrap" id="show-more-wrap">
           <button class="show-more" id="show-more" type="button" aria-expanded="false">Mostrar mais trabalhos <span aria-hidden="true">&#8595;&#65038;</span></button>
@@ -544,28 +552,28 @@
        rotate: (opcional) -90 ou 90, para vídeos que o Instagram mostra deitados.
                Já usa quadro horizontal 16:9. Se girar para o lado errado, troque -90 por 90. */
     const projects = [
-      { file: 'assets/videos/casamento-marcela-e-marcio-paulovillasboasfotovideo.mp4', title: 'Casamento Marcela e Márcio', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-bia-e-gustavo-eduardofilmes.mp4', title: 'Casamento Bia e Gustavo', client: '@eduardofilmes' },
-      { file: 'assets/videos/casamento-brunna-e-vinicius-doiselos.mp4', title: 'Casamento Brunna e Vinícius', client: '@doiselos' },
-      { file: 'assets/videos/casamento-karine-e-gustavo-paulovillasboasfotovideo.mp4', title: 'Casamento Karine e Gustavo', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-vic-e-andre-paulovillasboasfotovideo.mp4', title: 'Casamento Vic e André', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-cassiana-e-moises-paulovillasboasfotovideo.mp4', title: 'Casamento Cassiana e Moisés', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-maria-e-jose-paulovillasboasfotovideo.mp4', title: 'Casamento Maria e José', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-mariana-e-alexandre-paulovillasboasfotovideo.mp4', title: 'Casamento Mariana e Alexandre', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/15-anos-maria-luiza-cury-paulovillasboasfotovideo.mp4', title: '15 anos · Maria Luiza Cury', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/45-anos-juju-bianco-paulovillasboasfotovideo.mp4', title: '45 anos · Juju Bianco', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-carla-e-thiago-paulovillasboasfotovideo.mp4', title: 'Casamento Carla e Thiago', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/aniversario-sueli-xaxa-paulovillasboasfotovideo.mp4', title: 'Aniversário de 70 anos - João Batista Andrade', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/bodas-patricia-e-joao-paulovillasboasfotovideo.mp4', title: 'Bodas · Patrícia e João', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-andressa-e-junior-doiselos.mp4', title: 'Casamento Andressa e Júnior', client: '@doiselos' },
-      { file: 'assets/videos/casamento-fran-e-marcos-eduardofilmes.mp4', title: 'Casamento Fran e Marcos', client: '@eduardofilmes' },
-      { file: 'assets/videos/casamento-gabi-e-joao-doiselos.mp4', title: 'Casamento Gabi e João', client: '@doiselos' },
-      { file: 'assets/videos/casamento-leticia-e-henrique-paulovillasboasfotovideo.mp4', title: 'Casamento Letícia e Henrique', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-lorena-e-erick-paulovillasboasfotovideo.mp4', title: 'Casamento Lorena e Erick', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-lorena-e-tiago-paulovillasboasfotovideo.mp4', title: 'Casamento Lorena e Tiago', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-monize-e-renan-paulovillasboasfotovideo.mp4', title: 'Casamento Monize e Renan', client: '@paulovillasboasfotovideo' },
-      { file: 'assets/videos/casamento-thiago-e-magda-eduardofilmes.mp4', title: 'Casamento Thiago e Magda', client: '@eduardofilmes' },
-      { file: 'assets/videos/casamento-victoria-e-marco-paulovillasboasfotovideo.mp4', title: 'Casamento Victória e Marco', client: '@paulovillasboasfotovideo' }
+      { file: 'assets/videos/casamento-marcela-e-marcio-paulovillasboasfotovideo.mp4', title: 'Casamento Marcela e Márcio', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-bia-e-gustavo-eduardofilmes.mp4', title: 'Casamento Bia e Gustavo', client: '@eduardofilmes', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-brunna-e-vinicius-doiselos.mp4', title: 'Casamento Brunna e Vinícius', client: '@doiselos', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-karine-e-gustavo-paulovillasboasfotovideo.mp4', title: 'Casamento Karine e Gustavo', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-vic-e-andre-paulovillasboasfotovideo.mp4', title: 'Casamento Vic e André', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-cassiana-e-moises-paulovillasboasfotovideo.mp4', title: 'Casamento Cassiana e Moisés', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-maria-e-jose-paulovillasboasfotovideo.mp4', title: 'Casamento Maria e José', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-mariana-e-alexandre-paulovillasboasfotovideo.mp4', title: 'Casamento Mariana e Alexandre', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/15-anos-maria-luiza-cury-paulovillasboasfotovideo.mp4', title: '15 anos · Maria Luiza Cury', client: '@paulovillasboasfotovideo', tag: 'Aniversários' },
+      { file: 'assets/videos/45-anos-juju-bianco-paulovillasboasfotovideo.mp4', title: '45 anos · Juju Bianco', client: '@paulovillasboasfotovideo', tag: 'Aniversários' },
+      { file: 'assets/videos/casamento-carla-e-thiago-paulovillasboasfotovideo.mp4', title: 'Casamento Carla e Thiago', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/aniversario-sueli-xaxa-paulovillasboasfotovideo.mp4', title: 'Aniversário de 70 anos - João Batista Andrade', client: '@paulovillasboasfotovideo', tag: 'Aniversários' },
+      { file: 'assets/videos/bodas-patricia-e-joao-paulovillasboasfotovideo.mp4', title: 'Bodas · Patrícia e João', client: '@paulovillasboasfotovideo', tag: 'Aniversários' },
+      { file: 'assets/videos/casamento-andressa-e-junior-doiselos.mp4', title: 'Casamento Andressa e Júnior', client: '@doiselos', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-fran-e-marcos-eduardofilmes.mp4', title: 'Casamento Fran e Marcos', client: '@eduardofilmes', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-gabi-e-joao-doiselos.mp4', title: 'Casamento Gabi e João', client: '@doiselos', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-leticia-e-henrique-paulovillasboasfotovideo.mp4', title: 'Casamento Letícia e Henrique', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-lorena-e-erick-paulovillasboasfotovideo.mp4', title: 'Casamento Lorena e Erick', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-lorena-e-tiago-paulovillasboasfotovideo.mp4', title: 'Casamento Lorena e Tiago', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-monize-e-renan-paulovillasboasfotovideo.mp4', title: 'Casamento Monize e Renan', client: '@paulovillasboasfotovideo', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-thiago-e-magda-eduardofilmes.mp4', title: 'Casamento Thiago e Magda', client: '@eduardofilmes', tag: 'Casamentos' },
+      { file: 'assets/videos/casamento-victoria-e-marco-paulovillasboasfotovideo.mp4', title: 'Casamento Victória e Marco', client: '@paulovillasboasfotovideo', tag: 'Casamentos' }
     ];
 
     /* ---- medição de visitas (Cloudflare Web Analytics, sem cookies) ---- */
@@ -580,17 +588,40 @@
     /* ---- links e contatos vindos da CONFIG ---- */
     document.querySelectorAll('[data-ig]').forEach((a) => { a.href = `https://www.instagram.com/${CONFIG.instagram}/`; });
     document.querySelectorAll('[data-ig-handle]').forEach((el) => { el.textContent = '@' + CONFIG.instagram; });
-    document.querySelectorAll('[data-wa]').forEach((a) => { a.href = `https://wa.me/${CONFIG.whatsapp}`; });
+    /* WhatsApp com mensagem pronta, de acordo com a categoria escolhida nos trabalhos */
+    const WA_TEXT = {
+      Todos: 'Olá, Gabriel! Vim pelo seu site e quero fazer um orçamento.',
+      Casamentos: 'Olá, Gabriel! Vi seus trabalhos de casamento no site e quero um orçamento para o meu casamento.',
+      'Aniversários': 'Olá, Gabriel! Vi seus trabalhos de aniversário no site e quero um orçamento para o meu evento.',
+      Corporativo: 'Olá, Gabriel! Vi seus trabalhos corporativos no site e quero um orçamento para a minha empresa.',
+      Publicidade: 'Olá, Gabriel! Vi seus trabalhos de publicidade no site e quero um orçamento para a minha campanha.',
+      Eventos: 'Olá, Gabriel! Vi seus trabalhos de eventos no site e quero um orçamento para o meu evento.'
+    };
+    const WA_FORM = { Casamentos: 'Casamento', 'Aniversários': 'Aniversário ou evento social', Corporativo: 'Evento corporativo ou congresso', Publicidade: 'Publicidade ou campanha', Eventos: 'Aniversário ou evento social' };
+    const updateWa = (cat) => {
+      const text = WA_TEXT[cat] || WA_TEXT.Todos;
+      const link = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
+      document.querySelectorAll('[data-wa]').forEach((a) => { a.href = link; });
+      const cta = document.getElementById('catCtaLink');
+      if (cta) { cta.href = link; cta.textContent = cat === 'Todos' ? 'Pedir orçamento pelo WhatsApp' : `Pedir orçamento de ${cat.toLowerCase()}`; }
+      const sel = document.querySelector('#brief select[name="tipo"]');
+      if (sel && WA_FORM[cat] && !sel.dataset.touched) sel.value = WA_FORM[cat];
+    };
+    updateWa('Todos');
     document.querySelectorAll('[data-mail]').forEach((a) => { a.href = `mailto:${CONFIG.email}`; });
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /* ---- cards de trabalho ---- */
-    const LIMIT = 6;
+    const LIMIT = 4;
     const parent = document.getElementById('projects');
     const showMore = document.getElementById('show-more');
     const showMoreWrap = document.getElementById('show-more-wrap');
     const chipsBox = document.getElementById('chips');
     const cards = [];
+    /* as capas só carregam quando o card está chegando perto da tela (site mais leve, principalmente no celular) */
+    const posterObserver = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries, obs) => entries.forEach((en) => { if (en.isIntersecting) { en.target.poster = en.target.dataset.poster; obs.unobserve(en.target); } }), { rootMargin: '900px 0px' })
+      : { observe: (v) => { v.poster = v.dataset.poster; } };
     let activeTag = 'Todos';
     let expanded = false;
 
@@ -647,12 +678,13 @@
         const video = document.createElement('video');
         video.controls = true;
         video.playsInline = true;
-        video.preload = 'metadata';
+        video.preload = 'none';
         video.setAttribute('controlsList', 'nodownload');
         video.setAttribute('aria-label', `Vídeo${project.title ? ': ' + project.title : ''}, trabalho para ${project.client}`);
         const base = CONFIG.videoBase ? CONFIG.videoBase.replace(/\/+$/, '') + '/' : 'assets/videos/';
         const slug = project.file.split('/').pop().replace(/\.mp4$/i, '');
-        video.poster = `assets/capas/${encodeURIComponent(slug).replace(/%40/g, '@')}.jpg`;
+        video.dataset.poster = `assets/capas/${encodeURIComponent(slug).replace(/%40/g, '@')}.jpg`;
+        posterObserver.observe(video);
         /* tenta o nome do arquivo em até 3 formatos (sem @, com @, e o nome antigo sem o perfil) */
         const nomes = [slug, slug.replace(/-([^-]+)$/, '-@$1'), slug.replace(/-[^-]+$/, '')];
         let tentativa = 0;
@@ -668,7 +700,7 @@
         });
         /* arquivo ainda não existe: usa o player do Instagram como reserva */
         video.addEventListener('error', () => {
-          if (tentativa < nomes.length - 1) { tentativa += 1; video.src = urlDe(nomes[tentativa]); return; }
+          if (tentativa < nomes.length - 1) { tentativa += 1; video.src = urlDe(nomes[tentativa]); video.load(); video.play().catch(() => {}); return; }
           if (!project.url) return;
           video.remove();
           frame.classList.toggle('is-wide', wide);
@@ -738,6 +770,7 @@
         chip.setAttribute('aria-pressed', String(name === activeTag));
         chip.addEventListener('click', () => {
           activeTag = name;
+          updateWa(name);
           chipsBox.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
           applyView();
         });
@@ -797,6 +830,8 @@
 
     /* ---- briefing -> WhatsApp ---- */
     const form = document.getElementById('brief');
+    const tipoSel = form.querySelector('select[name="tipo"]');
+    if (tipoSel) tipoSel.addEventListener('change', () => { tipoSel.dataset.touched = '1'; });
     const note = document.getElementById('form-note');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
